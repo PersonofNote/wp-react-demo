@@ -6,6 +6,7 @@ import { BrowserRouter as Router,
   Switch 
   } from 'react-router-dom'
 import SinglePage from './components/SinglePage.js';
+import BlogPage from './components/BlogPage.js';
 import axios from 'axios';
 
 export default class App extends React.Component {
@@ -13,7 +14,8 @@ export default class App extends React.Component {
     super(props);
 
     this.state = {
-      mainMenu: []
+      mainMenu: [],
+      posts: ['Test', 'Dummy', 'Lorem']
     };
   }
   getMainMenu = async () => {
@@ -36,6 +38,7 @@ export default class App extends React.Component {
             {mainMenu.map((page) => {
                       return <Link className="Main-Menu-Link" to={page.slug}>{page.title.rendered}</Link>;
             })}
+            <Link className="Main-Menu-Link" to='/blog'>Blog</Link>
           </div>
           <Switch>
             {mainMenu.map((page, index) => {
@@ -45,11 +48,19 @@ export default class App extends React.Component {
                       key={index}
                       path={`/${page.slug}`}
                       render={props => (
+                        //Generate single page view from returned data
                         <SinglePage {...props} page={page} />
                       )}
                   />
               );
             })}
+            <Route
+              exact
+              path={`/blog`}
+              render={props => (
+                <BlogPage {...props} posts={this.state.posts} />
+              )}
+            />
           </Switch>
         </Router>
       </div>
