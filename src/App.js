@@ -15,7 +15,7 @@ export default class App extends React.Component {
 
     this.state = {
       mainMenu: [],
-      posts: ['Test', 'Dummy', 'Lorem']
+      posts: []
     };
   }
   getMainMenu = async () => {
@@ -25,9 +25,18 @@ export default class App extends React.Component {
       let { data } = await res;
       this.setState({ mainMenu: data });
   };
+
+  getArchive = async () => {
+    let res = await axios.get(
+      `http://localhost/wp-react/wp-backend/wp-json/wp/v2/posts?per_page=100`
+    );
+      let { data } = await res;
+      this.setState({ posts: data });
+  };
   
   componentDidMount = async () => {
     await this.getMainMenu();
+    await this.getArchive();
   };
   render(){
     const { mainMenu } = this.state;
@@ -54,6 +63,7 @@ export default class App extends React.Component {
                   />
               );
             })}
+            {/* Archive Route, TODO: expand to dynamically include various custom post types */}
             <Route
               exact
               path={`/blog`}
@@ -61,6 +71,7 @@ export default class App extends React.Component {
                 <BlogPage {...props} posts={this.state.posts} />
               )}
             />
+            {/* TODO: 404 page */}
           </Switch>
         </Router>
       </div>
