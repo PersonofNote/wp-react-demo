@@ -1,0 +1,146 @@
+.App {
+  //text-align: center;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  max-width: 100vw;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.Main-Menu {
+  display: flex;
+  flex-direction: row;
+  position: sticky;
+  top: 0;
+  background-color: white;
+}
+
+.Main-Menu-Link {
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+}
+
+.post-content {
+    padding: 2rem;
+    border-bottom: 1px solid gray;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 1;
+}
+
+.post-content p, pre {
+  word-wrap: break-word;
+}
+
+pre {
+  white-space: pre-wrap; 
+}
+
+
+
+
+img {
+    max-width: 100%;
+}
+
+.svg-icon {
+  height: 32px;
+  width: 32px;
+}
+
+.svg-icon svg {
+  height: 32px;
+  width: 32px;
+}
+
+.svg-icon svg:hover {
+  fill: orange;
+  transition-duration: 250ms;
+}
+
+.App-footer {
+  padding: 1rem;
+  width: 100%;
+  max-width: 100vw;
+  position: fixed;
+  top: calc((100% - 32px) - 2rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  align-items: center;
+  border: 1px solid lightgray;
+}
+
+.App-footer .copyright {
+  color: gray;
+  font-size: 0.8rem;
+  width: 33%;
+  text-align: center;
+}
+
+.App-footer .footer-links {
+  width: 33%;
+}
+
+.icon-tray {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  width: 33%;
+  align-content: center;
+}
+
+
+@media (min-width: 1024px) { 
+  .container {
+    max-width: 1024px;
+  }
+
+  .App-footer {
+    flex-direction: row;
+    height: auto;
+  }
+ }

@@ -5,7 +5,7 @@ export default function SinglePage(props) {
   return (
     <div className="content">
         <Header title={props.page.title.rendered}/>
-        <div class={"page-content"} dangerouslySetInnerHTML={{ __html: props.page.content.rendered }}/>
+        <div className={"container"} dangerouslySetInnerHTML={{ __html: props.page.content.rendered }}/>
     </div>
   )
 }

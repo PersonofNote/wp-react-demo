@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import { BrowserRouter as Router,
   Link,
   Route, 
@@ -7,6 +7,7 @@ import { BrowserRouter as Router,
   } from 'react-router-dom'
 import SinglePage from './components/SinglePage.js';
 import BlogPage from './components/BlogPage.js';
+import Footer from './components/Footer.js';
 import axios from 'axios';
 
 export default class App extends React.Component {
@@ -71,9 +72,10 @@ export default class App extends React.Component {
                 <BlogPage {...props} posts={this.state.posts} />
               )}
             />
-            {/* TODO: 404 page */}
+            <Route render={() => <div className="container">Not Found</div>} />
           </Switch>
         </Router>
+        <Footer/>
       </div>
     );
   }
