@@ -8,7 +8,7 @@ export default function BlogPage(props) {
         {props.posts.map((post, index) => {
               return (
                 <div className="container">
-                <div className="post-content">
+                <div id="{index}" className="post-content">
                   <h2>{post.title.rendered}</h2>
                   <div className={"page-content"} dangerouslySetInnerHTML={{ __html: post.content.rendered }}/>
                 </div>
