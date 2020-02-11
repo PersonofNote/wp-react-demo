@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import drawGraph from './ChartTest.js';
+import drawGraph from '../functions/ChartTest.js';
 
 
 export default class D3BarChart extends Component {

@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from './Header.js';
-import D3BarChart from './D3BarChart.js';
+import Header from '../components/Header.js';
+import D3BarChart from '../components/D3BarChart.js';
 
 //For testing
 

@@ -1,13 +1,14 @@
 import React from 'react';
-import './App.scss';
+import './styles/App.scss';
 import { BrowserRouter as Router,
   Link,
   Route, 
-  Switch 
+  Switch,
+  Redirect 
   } from 'react-router-dom'
-import SinglePage from './components/SinglePage.js';
-import BlogPage from './components/BlogPage.js';
-import ChartPage from './components/ChartPage.js';
+import SinglePage from './pages/SinglePage.js';
+import BlogPage from './pages/BlogPage.js';
+import ChartPage from './pages/ChartPage.js';
 import Footer from './components/Footer.js';
 import axios from 'axios';
 import scrollTop from './functions/ScrollTop';
@@ -83,6 +84,9 @@ export default class App extends React.Component {
                 <ChartPage />
               )}
             />
+            <Route exact path="/">
+              <Redirect to="/home-page" />
+            </Route>
             <Route render={() => <div className="container">Not Found</div>} />
           </Switch>
         </Router>

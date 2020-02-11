@@ -1,0 +1,12 @@
+.Main-Menu {
+  display: flex;
+  flex-direction: row;
+  position: sticky;
+  top: 0;
+  background-color: white;
+}
+
+.Main-Menu-Link {
+  padding: 0.5rem 0.2rem;
+  text-decoration: none;
+}

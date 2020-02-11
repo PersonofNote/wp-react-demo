@@ -3,7 +3,8 @@
  * 
  * https://towardsdatascience.com/react-d3-the-macaroni-and-cheese-of-the-data-visualization-world-12bafde1f922
  * 
- *
+ * Graph is modification of base tutorial here:
+ * https://bl.ocks.org/d3noob/bdf28027e0ce70bd132edc64f1dd7ea4
  * 
  */
 

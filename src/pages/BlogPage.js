@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './Header.js';
+import Header from '../components/Header.js';
 
 export default function BlogPage(props) {
   return (
