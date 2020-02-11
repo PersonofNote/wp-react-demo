@@ -10,6 +10,7 @@ import BlogPage from './components/BlogPage.js';
 import ChartPage from './components/ChartPage.js';
 import Footer from './components/Footer.js';
 import axios from 'axios';
+import scrollTop from './functions/ScrollTop';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -28,6 +29,7 @@ export default class App extends React.Component {
       this.setState({ mainMenu: data });
   };
 
+  // Blog page will display all posts
   getArchive = async () => {
     let res = await axios.get(
       `http://localhost/wp-react/wp-backend/wp-json/wp/v2/posts?per_page=100`
@@ -47,7 +49,7 @@ export default class App extends React.Component {
         <Router>
           <div className="Main-Menu">
             {mainMenu.map((page) => {
-                      return <Link className="Main-Menu-Link" to={page.slug}>{page.title.rendered}</Link>;
+                      return <Link onClick={scrollTop()} className="Main-Menu-Link" to={page.slug}>{page.title.rendered}</Link>;
             })}
             <Link className="Main-Menu-Link" to='/d3-in-react'>D3inReact</Link>
             <Link className="Main-Menu-Link" to='/blog'>Blog</Link>

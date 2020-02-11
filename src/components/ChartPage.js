@@ -1,15 +1,18 @@
 import React from 'react';
 import Header from './Header.js';
-import D3Chart from './mapComponent.js';
-//For testing
-const mapfile = 'https://PersonofNote.github.io/d3-visualization-map-test/world-110m.geojson'
+import D3BarChart from './D3BarChart.js';
 
+//For testing
+
+var data = [{label: 'a', value: 4}, {label: 'b', value: 8}, {label: 'c', value: 15},{label: 'd', value: 2}];
+var margin = {top: 20, right: 20, bottom: 30, left: 40}
 
 export default function GraphPage() {
   return (
     <div className="content">
         <Header title="Graph Page"/>
-        <D3Chart mapdata={mapfile} />
+        <D3BarChart height='500' width="500" margin={margin} data={data} />
     </div>
   )
 }
+			

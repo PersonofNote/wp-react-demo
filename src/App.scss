@@ -1,9 +1,6 @@
 .App {
   //text-align: center;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
   max-width: 100vw;
-  overflow-x: hidden;
 }
 
 .App-logo {
@@ -100,6 +97,14 @@ img {
   transition-duration: 250ms;
 }
 
+.bar-chart-container {
+  margin: 2rem;
+  width: 50%;
+  height: auto;
+  width: auto;
+}
+
+
 .App-footer {
   padding: 1rem;
   width: 100%;
@@ -142,6 +147,11 @@ img {
 
   .Main-Menu-Link {
     padding: 0.5rem 1rem;
+  }
+
+  .bar-chart-container {
+    max-width: 50%;
+    margin: auto;
   }
 
  }

@@ -7,7 +7,7 @@ export default function footer() {
         <div className="App-footer">
             <span className='copyright'>Copyright {thisYear} lorem ipsum </span>
             <div className='icon-tray'>
-                <span className="svg-icon"> <IconGithub /> </span>
+                <span className="svg-icon"><a href="https://github.com/PersonofNote" alt-text="Find me on github"> <IconGithub /></a> </span>
             </div>
             <div className='footer-links'></div>
         </div>
