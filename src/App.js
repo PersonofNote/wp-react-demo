@@ -49,10 +49,10 @@ export default class App extends React.Component {
         <Router>
           <div className="Main-Menu">
             {mainMenu.map((page) => {
-                      return <Link onClick={scrollTop()} className="Main-Menu-Link" to={page.slug}>{page.title.rendered}</Link>;
+                      return <Link onClick={scrollTop} className="Main-Menu-Link" to={page.slug}>{page.title.rendered}</Link>;
             })}
-            <Link className="Main-Menu-Link" to='/d3-in-react'>D3inReact</Link>
-            <Link className="Main-Menu-Link" to='/blog'>Blog</Link>
+            <Link onClick={scrollTop} className="Main-Menu-Link" to='/d3-in-react'>D3inReact</Link>
+            <Link onClick={scrollTop} className="Main-Menu-Link" to='/blog'>Blog</Link>
           </div>
           <Switch>
             {mainMenu.map((page, index) => {

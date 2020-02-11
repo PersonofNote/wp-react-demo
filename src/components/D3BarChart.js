@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import drawGraph from './ChartTest.js';
 
+
 export default class D3BarChart extends Component {
     constructor(props) {
         super(props);
@@ -10,7 +11,6 @@ export default class D3BarChart extends Component {
     }
     componentDidMount() {
         drawGraph(this.props)
-        console.log(this.props);
     }
 
     render() {
