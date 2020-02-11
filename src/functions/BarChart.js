@@ -6,12 +6,16 @@
  * Graph is modification of base tutorial here:
  * https://bl.ocks.org/d3noob/bdf28027e0ce70bd132edc64f1dd7ea4
  * 
+ * Animation from
+ * https://www.d3-graph-gallery.com/graph/barplot_animation_start.html
+ * 
  */
 
 //For testing; in production would require only needed modules
 import * as d3 from "d3";
 
 export default function drawChart(data) {
+    d3.selectAll('#bar-chart').selectAll('svg').remove();
     var width = data.width - data.margin.left - data.margin.right;
     var height = data.height - data.margin.top - data.margin.bottom;
     var x = d3.scaleBand()
@@ -26,6 +30,8 @@ export default function drawChart(data) {
     var svg = d3.select('#bar-chart').append("svg")
         .attr("width", width + data.margin.left + data.margin.right)
         .attr("height", height + data.margin.top + data.margin.bottom)
+        .attr("viewBox", `0 0 ${height} ${width}`)
+        .attr("preserveAspectRatio", "xMinYMin meet")
         .append("g")
         .attr("transform", 
             "translate(" + data.margin.left + "," + data.margin.top + ")");
@@ -41,8 +47,9 @@ export default function drawChart(data) {
         .attr("class", "bar")
         .attr("x", function(d) { return x(d.label); })
         .attr("width", x.bandwidth())
-        .attr("y", function(d) { return y(d.value); })
-        .attr("height", function(d) { return height - y(d.value); });
+        .attr("y", function(d) { return y(0); }) //Place bar at bottom
+        .attr("height", 0)  //Begin with no height
+        .attr("fill", function(d) { return d.color} );
 
     // add the x Axis
     svg.append("g")
@@ -52,5 +59,13 @@ export default function drawChart(data) {
     // add the y Axis
     svg.append("g")
         .call(d3.axisLeft(y));
+
+    // animate
+    svg.selectAll(".bar")
+    .transition()
+    .duration(800)
+    .attr("y", function(d) { return y(d.value); })
+    .attr("height", function(d) { return height - y(d.value); })
+    .delay(function(d,i){ return(i*100)})
 
     };

@@ -13,6 +13,8 @@ import Footer from './components/Footer.js';
 import axios from 'axios';
 import scrollTop from './functions/ScrollTop';
 
+//TODO: implement Google crawling/SEO, back button, etc
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -50,10 +52,10 @@ export default class App extends React.Component {
         <Router>
           <div className="Main-Menu">
             {mainMenu.map((page) => {
-                      return <Link onClick={scrollTop} className="Main-Menu-Link" to={page.slug}>{page.title.rendered}</Link>;
+                      return <Link aria-label={page.title.rendered} onClick={scrollTop} className="Main-Menu-Link" to={page.slug}>{page.title.rendered}</Link>;
             })}
-            <Link onClick={scrollTop} className="Main-Menu-Link" to='/d3-in-react'>D3inReact</Link>
-            <Link onClick={scrollTop} className="Main-Menu-Link" to='/blog'>Blog</Link>
+            <Link onClick={scrollTop} aria-label="D3 in React"  className="Main-Menu-Link" to='/d3-in-react'>D3inReact</Link>
+            <Link onClick={scrollTop}  aria-label="Blog" className="Main-Menu-Link" to='/blog'>Blog</Link>
           </div>
           <Switch>
             {mainMenu.map((page, index) => {
