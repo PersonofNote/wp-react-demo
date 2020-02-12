@@ -15,7 +15,6 @@
 import * as d3 from "d3";
 
 export default function drawChart(data) {
-    console.log(data.width);
     d3.selectAll('#bar-chart').selectAll('svg').remove();
     var width = data.width
     var height = data.height
@@ -52,11 +51,13 @@ export default function drawChart(data) {
 
     // add the x Axis
     svg.append("g")
+        .attr("class", "D3-axis")
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x));
 
     // add the y Axis
     svg.append("g")
+        .attr("class", "D3-axis")
         .call(d3.axisLeft(y));
 
     };

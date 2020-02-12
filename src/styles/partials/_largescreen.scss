@@ -1,4 +1,11 @@
 
+@media (min-width: 768) {
+  .bar-chart-container {
+    max-width: 80%;
+    margin: auto;
+  }
+}
+
 @media (min-width: 1024px) { 
   .container {
     max-width: 1024px;
@@ -10,9 +17,7 @@
 
   .bar-chart-container {
     max-width: 50%;
-    margin: auto;
   }
 
-  
 
  }

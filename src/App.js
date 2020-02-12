@@ -13,7 +13,7 @@ import Footer from './components/Footer.js';
 import axios from 'axios';
 import scrollTop from './functions/ScrollTop';
 
-//TODO: implement Google crawling/SEO, back button, etc
+//TODO: implement Google crawling/SEO, back button, scroll-to-top element on scroll
 
 export default class App extends React.Component {
   constructor(props) {
