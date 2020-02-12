@@ -45,14 +45,18 @@ export default class App extends React.Component {
     await this.getMainMenu();
     await this.getArchive();
   };
+
   render(){
     const { mainMenu } = this.state;
     return (
       <div className="App">
         <Router>
           <div className="Main-Menu">
+            <Link onClick={scrollTop} aria-label="Home"  className="Main-Menu-Link" to='/'>Home</Link>
             {mainMenu.map((page) => {
+              if(page.slug !== "home-page"){
                       return <Link aria-label={page.title.rendered} onClick={scrollTop} className="Main-Menu-Link" to={page.slug}>{page.title.rendered}</Link>;
+              }
             })}
             <Link onClick={scrollTop} aria-label="D3 in React"  className="Main-Menu-Link" to='/d3-in-react'>D3inReact</Link>
             <Link onClick={scrollTop}  aria-label="Blog" className="Main-Menu-Link" to='/blog'>Blog</Link>

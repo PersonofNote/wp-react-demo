@@ -1,22 +1,15 @@
+$accent: #6C5B7B;
+
 .App {
   //text-align: center;
   max-width: 100vw;
   min-height: 100vh;
+  margin-bottom: 8rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
-  background-color: gray;
+  background-color: $accent;
   min-height: 10vh;
   display: flex;
   flex-direction: column;
@@ -43,6 +36,12 @@
 .container {
   max-width: 600px;
   margin: auto;
+  padding: 2rem;
+  overflow-x: hidden;
+}
+
+figure {
+  max-width: 600px;
 }
 
 .post-content {
@@ -84,15 +83,10 @@ img {
 }
 
 .svg-icon svg:hover {
-  fill: orange;
+  fill: $accent;
   transition-duration: 250ms;
 }
 
-
-.bar-chart-container {
-    margin: 2rem;
-    width: 50%;
-    height: auto;
-    width: auto;
-  }
-  
+.d3-chart {
+  overflow-x: hidden;
+}

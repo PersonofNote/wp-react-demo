@@ -18,9 +18,13 @@ export default class D3BarChart extends Component {
     }
 
     render() {
+        console.log(this.state)
         return (
-            <div className='bar-chart-container'>
-                <div className="d3-chart" id="bar-chart" width={this.props.width} data={this.props}> </div>
+            <div class='container'>
+                <h2> Sample Bar Chart </h2>
+                <div className='bar-chart-container'>
+                    <div ref="d3Chart" className="d3-chart" id="bar-chart" data={this.props}> </div>
+                </div>
             </div>
         )
     }

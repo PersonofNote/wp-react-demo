@@ -1,9 +1,7 @@
 import React from 'react';
 import Header from '../components/Header.js';
 import D3BarChart from '../components/D3BarChart.js';
-
-//Hook recipe based on: https://usehooks.com/useWindowSize/
-
+//Practice using hooks; may be better wrapped into the chart class itself
 import { useState, useEffect } from 'react';
 
 // Hook
@@ -35,21 +33,25 @@ function useWindowSize() {
   return windowSize;
 }
 
+function calculateSVGWidth(size) {
+ return size.width > 1050 ? "800" : size.width;
+}
+
 //For testing only; with more time, would consider how to build blocks from which to get data to construct a chart based on editor input
 var data = [{label: 'a', value: 4, color: '#F8B195' }, {label: 'b', value: 8, color: '#F67280'}, {label: 'c', value: 15, color: '#C06684'},{label: 'd', value: 2, color: '#6C5B7B'}];
-var margin = {top: 40, right: 20, bottom: 30, left: 40};
+
 
 // TODO: Update width on window resize (opportunity for React hook?)
 
 export default function GraphPage() {
   const size = useWindowSize();
+  const svgWidth = calculateSVGWidth(size);
   return (
     <div className="content">
         <Header title="Graph Page"/>
         <div>
-        {size.width}px / {size.height}px
         </div>
-        <D3BarChart height={size.height * .75} width={size.width-(margin.right + margin.left)} margin={margin} data={data} />
+        <D3BarChart height={size.height} width={svgWidth} data={data} />
     </div>
   )
 }

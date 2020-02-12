@@ -15,9 +15,10 @@
 import * as d3 from "d3";
 
 export default function drawChart(data) {
+    console.log(data.width);
     d3.selectAll('#bar-chart').selectAll('svg').remove();
-    var width = data.width - data.margin.left - data.margin.right;
-    var height = data.height - data.margin.top - data.margin.bottom;
+    var width = data.width
+    var height = data.height
     var x = d3.scaleBand()
         .range([0, width])
         .padding(0.1);
@@ -28,13 +29,11 @@ export default function drawChart(data) {
     // append a 'group' element to 'svg'
     // moves the 'group' element to the top left margin
     var svg = d3.select('#bar-chart').append("svg")
-        .attr("width", width + data.margin.left + data.margin.right)
-        .attr("height", height + data.margin.top + data.margin.bottom)
+        .attr("width", width)
+        .attr("height", height)
         .attr("viewBox", `0 0 ${height} ${width}`)
         .attr("preserveAspectRatio", "xMinYMin meet")
-        .append("g")
-        .attr("transform", 
-            "translate(" + data.margin.left + "," + data.margin.top + ")");
+        .append("g");
 
     // Scale the range of the data in the domains
     x.domain(data.data.map(function(d) { return d.label; }));
@@ -47,8 +46,8 @@ export default function drawChart(data) {
         .attr("class", "bar")
         .attr("x", function(d) { return x(d.label); })
         .attr("width", x.bandwidth())
-        .attr("y", function(d) { return y(0); }) //Place bar at bottom
-        .attr("height", 0)  //Begin with no height
+        .attr("y", function(d) { return y(d.value); })
+        .attr("height", function(d) { return height - y(d.value); })
         .attr("fill", function(d) { return d.color} );
 
     // add the x Axis
@@ -59,13 +58,5 @@ export default function drawChart(data) {
     // add the y Axis
     svg.append("g")
         .call(d3.axisLeft(y));
-
-    // animate
-    svg.selectAll(".bar")
-    .transition()
-    .duration(800)
-    .attr("y", function(d) { return y(d.value); })
-    .attr("height", function(d) { return height - y(d.value); })
-    .delay(function(d,i){ return(i*100)})
 
     };
